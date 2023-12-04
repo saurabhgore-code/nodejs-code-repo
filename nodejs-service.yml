@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs
+  labels: 
+    app: nodeapp
+spec:
+  replicas: 2
+  selector:
+      matchLabels: 
+       app: nodeapp
+  template:
+    metadata:
+      labels:
+        app: nodeapp
+    spec:
+      containers:
+        - name: nodejs-container
+          image: saurabhgore70/my-nodejs-app:v1
+

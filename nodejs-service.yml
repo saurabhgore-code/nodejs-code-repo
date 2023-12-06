@@ -1,20 +1,12 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Service
 metadata:
-  name: nodejs
-  labels: 
-    app: nodeapp
+ name: nodejs
 spec:
-  replicas: 2
+  type: NodePort
+  ports:
+    - targetPort: 8000
+      port: 8000
+      name: nodejs
   selector:
-      matchLabels: 
-       app: nodeapp
-  template:
-    metadata:
-      labels:
-        app: nodeapp
-    spec:
-      containers:
-        - name: nodejs-container
-          image: saurabhgore70/my-nodejs-app:v1
-
+    app: nodeapp

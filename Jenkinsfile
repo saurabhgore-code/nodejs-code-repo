@@ -25,11 +25,12 @@ pipeline {
                 }
             }
         }
-        stage("deploy using kubernetes"){
+/*        stage("deploy using kubernetes"){
             steps{
                 sh "kubectl create -f nodejs-deployment.yml"
     }
 }
+*/
       stage("create a nodeport service"){
       steps{
                 sh "kubectl create -f nodejs-service.yml"
